@@ -8,3 +8,16 @@ title as the website shows
 
 
 doubt: credit to the photographer is just paragraph, but maybe later on we will have to put IDs for this kind of things
+
+-----
+
+ADJUSTMENTS I MADE ON "JAPAN" FOR MY THEME:
+
+This is the Japan article from delfina that I changed in order to fit my theme (and not mess up w/yours):
+
+what I changed:
+- div class= bg for images, in case one wants to apply any sort of non-predefined filter on their images
+- added time and author for styling
+- span id on the first two chars of the date in order to make it fancier on my theme
+
+NOTE: all of these changes/classes WILL NOT affect your theme, unless you use the specific classes
