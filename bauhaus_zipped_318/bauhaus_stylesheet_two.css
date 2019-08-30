@@ -1,0 +1,521 @@
+@charset "utf-8";
+
+/* for the fonts, it is necessary (for browser support) to  download the font 
+and upload it to squirrelfont, which will give you the css code to include in 
+the stylesheet for the font*/
+
+@font-face {
+    font-family: 'futurabook';
+    src: url('futuraaa/futura_book_font-webfont.woff2') format('woff2'),
+         url('futuraaa/futura_book_font-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'futurabook_italic';
+    src: url('futuraaa/futura_book_italic_font-webfont.woff2') format('woff2'),
+         url('futuraaa/futura_book_italic_font-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'futuralight';
+    src: url('futuraaa/futura_light_font-webfont.woff2') format('woff2'),
+         url('futuraaa/futura_light_font-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'futuralight_italic';
+    src: url('futuraaa/futura_light_italic_font-webfont.woff2') format('woff2'),
+         url('futuraaa/futura_light_italic_font-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'futuramedium';
+    src: url('futuraaa/futura_medium_bt-webfont.woff2') format('woff2'),
+         url('futuraaa/futura_medium_bt-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'futuramedium';
+    src: url('futura_medium_condensed_bt-webfont.woff2') format('woff2'),
+         url('futura_medium_condensed_bt-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'p22_bayer_fonetikregular';
+    src: url('bayer/p22_bayer_fonetik-webfont.woff2') format('woff2'),
+         url('bayer/p22_bayer_fonetik-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* custom scrollbar  made from a website that gave you the css automatically */
+
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #3c13fb;
+  border: 4px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffff00;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  border: 0px none #ffffff;
+  border-radius: 23px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-track:active {
+  background: #ffffff;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+body{ text-transform: lowercase;
+}
+
+main {
+  width: 850px;
+}
+
+/* always include a fallback font in case something goes wrong*/
+
+ p, footer { 
+  font-family: 'futurabook', Fallback, sans-serif;
+  background-color: white;
+  color: black;
+  text-transform: lowercase;
+  font-size: 17px;
+  text-align: justify;
+  margin-left: 140px;
+  margin-right: 140px;
+}
+
+
+/* figure = image + figcaption */
+
+figure {
+position: center;
+padding: 10px;
+}
+
+/* I wanted the caption to go over the img, so what I did was to put
+0 as margin top, considering both image and caption are inside a div,
+therefore we mean the top of the div. it does not work w/o div */
+
+/* word-wrap was also useful so that the words of the caption would 
+not overlay over the text or the image if there was too much content */
+
+figcaption { 
+font-family: 'futuramedium';
+font-style: bold;
+font-weight: 20px;
+color:     #FA9092;
+text-align: justify;
+font-size: 18px;
+word-wrap: break-word;
+position: absolute;
+top: 0;
+max-width: 500px;  
+}
+
+/* img needs to be a bit opaque for the text of the caption to show */
+
+img {filter: grayscale(100%);
+opacity: 0.5;
+display: block; 
+}
+
+/* here is why div class .bg is very useful: I put another image 
+underneath so that it is possible to apply "color correction" to
+img without causing other messes... this also helped me to change
+bg colors of images on click with jquery */
+
+.bg {
+background: #1B2CBD;
+margin-left: 140px;
+margin-right: 140px;
+position: relative;
+max-width: 450px;
+max-height: 550px;  
+}
+
+/* also applied some random filter found on the internet... this
+code is just messy because I put opacity twice, must figure it 
+out */
+
+.bg img {
+max-width: 450px;
+max-height: 550px;
+mix-blend-mode: screen;
+-webkit-filter: grayscale(100%) contrast(200%);
+filter: grayscale(100%) contrast(200%);
+opacity: 0.7;
+}
+
+header {
+font-family: 'futurabook';
+text-transform: lowercase;
+}
+
+/* time html tag is useful if you want to make the date of
+an article something custom and special */
+
+time { 
+font-family: 'futuramedium';
+text-transform: lowercase;
+color: black;
+font-size: 20px;
+margin-left: 130px;
+}
+
+/* span class I made for styling the two first chars of the date,
+that is to say the number! I wanted it bigger than the rest. If you 
+don't wanna style them inyour css, just ignore it and nothing will show up */
+
+#first {
+font-family: 'p22_bayer_fonetikregular';
+font-size: 130px; 
+}
+
+h1 {
+font-family: 'futuramedium';
+color: black;
+text-transform: lowercase;
+font-size: 140px;
+text-align: right;
+font-style: bold;
+font-weight:450px;
+margin-top: 60px;
+margin-right: 130px;
+}
+
+/* from here on, border+radius allows me to achieve that half-ellipsis
+kind of effect. you can transform it into a full circle (idk how) or a 
+square (default with border) */
+
+h2 { 
+font-family: 'futuramedium';
+color: black;
+text-transform: lowercase;
+text-align: right;
+font-size: 17px;
+margin-right: 140px;
+padding-right: 5px;
+border-right-style: solid;
+border-right-color: black;
+border-right-width: 10px;
+border-radius: 15px;  
+}
+
+h3 { font-family: 'futuramedium';
+font-size: 17px; 
+color: black;
+text-align: right;
+margin-right: 140px;
+padding-right: 5px;
+padding-right: 5px;
+border-right-style: solid;
+border-right-color: black;
+border-right-width: 10px;
+border-radius: 15px
+}
+
+h4 { 
+font-family: 'futuramedium';
+font-size:17px;
+color: black;
+text-align: right;
+padding: 5px;
+margin-right: 140px;
+}
+
+h5 { 
+font-family: 'futuramedium';
+font-size:10px;
+color: black;
+text-align: right;
+padding: 5px;
+margin-right: 140px;
+}
+
+h6 { 
+font-family: 'futuramedium';
+font-size:10px;
+color: black;
+text-align: right;
+padding: 5px;
+margin-right: 140px;
+}
+
+/* I wanted the quotes bold, well it doesn't seem to work with the
+font I chose, but <q> is still a very useful tag to personalize */
+
+q { 
+  font-style: bold;
+margin-top: 50px; 
+margin-bottom: 50px; 
+}
+
+/* our articles also include a table, so we need to create styling 
+for it, otherwise it is going to be very ugly. I tried to make it
+nicer with borders and hover. there is a nice article on csstricks
+that tells you how to do it */
+
+table {
+font-family: "futurabook";
+margin-left: 140px;
+margin-right: 140px;
+text-align: center;
+border-collapse: collapse; 
+border-spacing: 0;  
+}
+
+td, th {
+border: 3px solid black;
+height: 30px;
+}
+
+th { background: #F3F3F3;
+}
+
+/* for instance, the following line of code tells css to
+make the odd rows a certain colour. it works for the even
+ones too, ofc, changing the word */
+
+tr:nth-child(odd) td { background: #F3F3F3; } 
+
+tr td:hover { background: yellow; }  
+
+/* I wanted italics to be highlighted, so yellow square here */ 
+
+em {font-family: 'futurabook_italic';
+border-left-style: solid;
+border-left-color:  yellow ;
+border-left-width: 10px;
+font-style: bold;
+}
+
+/* this is the styling for the button, IN YOUR CASE YOU WOULD USE
+BUTTON DISPLAY: NONE; and it is not gonna show in your themes */
+
+/*if I click on the buttons, I can choose three different color
+combinations and fonts to try, thanks to jquery code */
+
+button {
+font-family: 'futuramedium';
+border-radius: 3%;
+background-color: white;
+font-color: black;
+font-size: 15px;
+padding: 10px;
+margin: 20px;
+border: 3px solid black;
+text-align: center;
+margin-left: 20px;
+}
+
+footer {
+border-right-style: solid;
+border-right-color: black;
+border-right-width: 10px;
+border-top-style: solid;
+border-top-color: black;
+border-top-width: 7px;
+padding: 3px;
+}
+
+/* very important part here! the responsive one!! bootstrap has
+these media queries that are different according to the size of
+your screen. you have four in total, one for extra small (xs), one
+for medium (tablets), one for large and one for extra large. I do
+not know much about this, but it seems the xs is handled by boot
+by default */ 
+
+/* for instance, in this one the normal header would have been too
+big, so i broke it with word-break, of course the font size has
+become smaller too, in general */
+
+@media (max-width: 576px) { 
+ 
+
+  h1 {font-size: 70px;
+    word-break: break-all;
+    text-align: justify;
+    letter-spacing: 2px;
+    line-height: 40px;
+    padding: 10px;
+  }
+
+  h2{ font-size: 15px;
+  }
+
+  h3{ font-size: 15px;
+  }
+
+  time{font-size: 10px;
+  }
+
+/* random yellow circle around the date day number */
+
+  #first {font-size: 50px;
+    display: block;
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    background-color:  yellow;
+    color: black;
+  }
+
+.bg {
+  width: 100%;
+    margin: 0;
+}
+
+img {max-width: 180px;
+}
+
+main {width: 450px
+}
+
+p { float: none;
+  padding: 10px;
+  margin: 0;
+}
+
+figcaption {word-break: break-all;
+  font-size: 13px;
+  font-style: bold;
+
+}
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 768px) {
+
+  h1 {
+    font-size: 100px;
+    word-break: break-all;
+    text-align: justify;
+    letter-spacing: 2px;
+      line-height: 180px;
+
+  }
+
+  h2{ 
+    font-size: 20px;
+  }
+
+  h3{ 
+    font-size: 20px;
+  }
+
+  time{
+    font-size: 15px;
+  }
+
+  #first {
+    font-size: 50px;
+    display: block;
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    background-color:  yellow;
+    color: black;
+  }
+
+.bg {
+  width: 100%;
+}
+
+figure { 
+  float: center;
+  margin-left: 100px;
+}
+
+
+
+p { float: none;
+  width: 100%;
+  padding: 10px;
+
+}
+
+figcaption {word-break: break-all;
+  font-size: 15px;
+  font-style: bold;
+
+}
+ 
+ }
+
+/* haven't done anything with these two yet... */
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+
+/* here is the styling for links, I decided to make a link yet to click red, and
+one that is clicked with a strike-through line */
+ 
+ a:link { color: red; font-family: 'futuramedium' ; font-size: 18px; text-decoration: underline; text-decoration-style: 1px solid red; }
+ a:visited { color: red; font-family: 'futuramedium' ; font-size: 18px; text-decoration: line-through; text-decoration-style: 1px solid red; }
+ a:hover { color: red; font-family: 'futuramedium' ; font-size: 18px; text-decoration: line-through; text-decoration-style: 1px solid red; }
+ a:active { color: red; font-family: 'futuramedium' ; font-size: 18px; text-decoration: underline; text-decoration-style: 1px solid red; }
+
+
